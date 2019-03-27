@@ -1,0 +1,638 @@
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.0 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to docker@192.168.99.100                             │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✘  (disabled or not supported by server)     │
+     │   • DISPLAY         : 192.168.1.2:0.0                              │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+   ( '>')
+  /) TC (\   Core is distributed with ABSOLUTELY NO WARRANTY.
+ (/-_--_-\)           www.tinycorelinux.net
+
+docker@default:~$ sudo -i
+root@default:~# docker images
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+ubuntu                      latest              94e814e2efa8        2 weeks ago         88.9MB
+jetbrains/teamcity-server   latest              c1fa895978cd        3 weeks ago         1.59GB
+root@default:~# docker ps -a
+CONTAINER ID        IMAGE                       COMMAND              CREATED             STATUS                      PORTS               NAMES
+0c5ad19e9cc6        jetbrains/teamcity-server   "/run-services.sh"   20 minutes ago      Exited (0) 35 seconds ago                       teamcity-server-instance
+root@default:~# docker rm teamcity-server-instance
+teamcity-server-instance
+root@default:~# docker run -ti --name teamcity -p 8111:8111 jetbrains/teamcity-server
+/run-services.sh
+/run-server.sh
+Java executable is found: '/opt/java/openjdk/jre/bin/java'
+2019-03-27 22:31:38 UTC: Starting TeamCity server
+2019-03-27 22:31:38 UTC: TeamCity process PID is 108
+Picked up JAVA_TOOL_OPTIONS: -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
+27-Mar-2019 22:31:42.935 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.5.37
+27-Mar-2019 22:31:43.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 12 2018 12:07:02 UTC
+27-Mar-2019 22:31:43.028 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.5.37.0
+27-Mar-2019 22:31:43.029 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+27-Mar-2019 22:31:43.030 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.14.104-boot2docker
+27-Mar-2019 22:31:43.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+27-Mar-2019 22:31:43.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk/jre
+27-Mar-2019 22:31:43.036 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_192-b12
+27-Mar-2019 22:31:43.037 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+27-Mar-2019 22:31:43.039 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /opt/teamcity
+27-Mar-2019 22:31:43.041 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /opt/teamcity
+27-Mar-2019 22:31:43.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UnlockExperimentalVMOptions
+27-Mar-2019 22:31:43.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -XX:+UseCGroupMemoryLimitForHeap
+27-Mar-2019 22:31:43.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/opt/teamcity/conf/logging.properties
+27-Mar-2019 22:31:43.049 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+27-Mar-2019 22:31:43.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+27-Mar-2019 22:31:43.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+27-Mar-2019 22:31:43.054 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+27-Mar-2019 22:31:43.056 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx512m
+27-Mar-2019 22:31:43.058 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dteamcity.configuration.path=../conf/teamcity-startup.properties
+27-Mar-2019 22:31:43.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dlog4j.configuration=file:/opt/teamcity/bin/../conf/teamcity-server-log4j.xml
+27-Mar-2019 22:31:43.063 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dteamcity_logs=/opt/teamcity/bin/../logs
+27-Mar-2019 22:31:43.064 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.awt.headless=true
+27-Mar-2019 22:31:43.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+27-Mar-2019 22:31:43.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/opt/teamcity
+27-Mar-2019 22:31:43.068 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/opt/teamcity
+27-Mar-2019 22:31:43.070 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/opt/teamcity/temp
+27-Mar-2019 22:31:43.071 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+27-Mar-2019 22:31:43.675 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8111"]
+27-Mar-2019 22:31:43.785 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+27-Mar-2019 22:31:43.853 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 3468 ms
+27-Mar-2019 22:31:43.999 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+27-Mar-2019 22:31:44.001 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.37
+27-Mar-2019 22:31:44.052 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/opt/teamcity/webapps/ROOT]
+Using logs directory /opt/teamcity/logs
+Log4J configuration file /opt/teamcity/bin/../conf/teamcity-server-log4j.xml will be monitored with interval 10 seconds.
+27-Mar-2019 22:32:03.775 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/opt/teamcity/webapps/ROOT] has finished in [19,723] ms
+27-Mar-2019 22:32:03.785 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8111"]
+27-Mar-2019 22:32:03.848 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 19992 ms
+TeamCity version: 2018.2.3 (build 61544), data format version 875
+OS: Linux, version 4.14.104-boot2docker, amd64, Current user: root, Time zone: GMT (UTC)
+Java: 1.8.0_192, OpenJDK 64-Bit Server VM (25.192-b12, mixed mode), OpenJDK Runtime Environment (1.8.0_192-b12), Oracle Corporation; JVM parameters: -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Djava.util.logging.config.file=/opt/teamcity/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -Xmx512m -Dteamcity.configuration.path=../conf/teamcity-startup.properties -Dlog4j.configuration=file:/opt/teamcity/bin/../conf/teamcity-server-log4j.xml -Dteamcity_logs=/opt/teamcity/bin/../logs -Djava.awt.headless=true -Dignore.endorsed.dirs= -Dcatalina.base=/opt/teamcity -Dcatalina.home=/opt/teamcity -Djava.io.tmpdir=/opt/teamcity/temp
+Startup confirmation is required. Open TeamCity web page in the browser. Server is running at http://localhost:8111
+[2019-03-27 22:33:40,789]   WARN -   jetbrains.buildServer.UPDATE - Auto update is disabled: not supported for the 'docker-ubuntu' distribution.
+=======================================================================
+TeamCity initialized, server UUID: f6e014fa-9b96-429b-ace8-46cd130f1d01, URL: http://localhost
+TeamCity is running in professional mode
+[TeamCity] Super user authentication token: 1715997999075858711 (use empty username with the token as the password to access the server)
+[TeamCity] Super user authentication token: 1715997999075858711 (use empty username with the token as the password to access the server)
+[2019-03-27 22:41:20,697]  ERROR -   jetbrains.buildServer.SERVER - Error java.io.IOException: Broken pipe; while processing request: GET '/profile.html', from client 192.168.99.1:51228, authenticated as 'rajendra' {id=1}
+java.io.IOException: Broken pipe
+        at sun.nio.ch.FileDispatcherImpl.write0(Native Method)
+        at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47)
+        at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+        at sun.nio.ch.IOUtil.write(IOUtil.java:65)
+        at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:471)
+        at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:134)
+        at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101)
+        at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:157)
+        at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1306)
+        at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:726)
+        at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:496)
+        at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:434)
+        at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:623)
+        at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:123)
+        at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:225)
+        at org.apache.coyote.Response.doWrite(Response.java:541)
+        at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351)
+        at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:825)
+        at org.apache.catalina.connector.OutputBuffer.realWriteChars(OutputBuffer.java:456)
+        at org.apache.catalina.connector.OutputBuffer.flushCharBuffer(OutputBuffer.java:830)
+        at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:763)
+        at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:508)
+        at org.apache.catalina.connector.CoyoteWriter.write(CoyoteWriter.java:148)
+        at org.apache.jasper.runtime.JspWriterImpl.flushBuffer(JspWriterImpl.java:112)
+        at org.apache.jasper.runtime.JspWriterImpl.flush(JspWriterImpl.java:170)
+        at java.io.PrintWriter.flush(PrintWriter.java:320)
+        at org.apache.jasper.runtime.JspWriterImpl.flush(JspWriterImpl.java:172)
+        at org.apache.jsp.profile.userGeneralSettings_jsp._jspService(userGeneralSettings_jsp.java:300)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:476)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.access$001(TeamCityJSPServletImpl.java:2)
+        at jetbrains.spring.web.TeamCityJSPServletImpl$2.apply(TeamCityJSPServletImpl.java:2)
+        at jetbrains.buildServer.util.Util.doUnderContextClassLoader(Util.java:78)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.lambda$service$0(TeamCityJSPServletImpl.java:27)
+        at jetbrains.buildServer.util.NamedThreadFactory.executeWithNewThreadNameFuncThrow(NamedThreadFactory.java:107)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.service(TeamCityJSPServletImpl.java:31)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.spring.web.JspController.doHandle(JspController.java:1)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+        at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:591)
+        at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:527)
+        at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:892)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag._jspx_meth_c_005fif_005f3(includeExtension_tag.java:584)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag._jspx_meth_c_005fif_005f0(includeExtension_tag.java:206)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag.doTag(includeExtension_tag.java:169)
+        at org.apache.jsp.profile.profile_jsp._jspx_meth_ext_005fincludeExtension_005f0(profile_jsp.java:525)
+        at org.apache.jsp.profile.profile_jsp.access$5(profile_jsp.java:513)
+        at org.apache.jsp.profile.profile_jsp$Helper.invoke3(profile_jsp.java:688)
+        at org.apache.jsp.profile.profile_jsp$Helper.invoke(profile_jsp.java:722)
+        at org.apache.jsp.tag.web.page_tag.doTag(page_tag.java:876)
+        at org.apache.jsp.profile.profile_jsp._jspService(profile_jsp.java:248)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:476)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.access$001(TeamCityJSPServletImpl.java:2)
+        at jetbrains.spring.web.TeamCityJSPServletImpl$2.apply(TeamCityJSPServletImpl.java:2)
+        at jetbrains.buildServer.util.Util.doUnderContextClassLoader(Util.java:78)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.lambda$service$0(TeamCityJSPServletImpl.java:27)
+        at jetbrains.buildServer.util.NamedThreadFactory.executeWithNewThreadNameFuncThrow(NamedThreadFactory.java:107)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.service(TeamCityJSPServletImpl.java:31)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.spring.web.JspController.doHandle(JspController.java:1)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+        at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:470)
+        at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:395)
+        at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:316)
+        at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:168)
+        at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.jsp.JspPrecompilerFilter.doFilter(JspPrecompilerFilter.java:169)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.DisableSessionIdFromUrlFilter.doFilter(DisableSessionIdFromUrlFilter.java:1)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.UserIdProviderFilter.doFilter(UserIdProviderFilter.java:12)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.NodeInfoHeaderFilter.doFilter(NodeInfoHeaderFilter.java:6)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:107)
+        at jetbrains.buildServer.diagnostic.web.DiagnosticFilter.doFilter(DiagnosticFilter.java:88)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.DependencyParametersCalculationContextFilter.doFilter(DependencyParametersCalculationContextFilter.java:1)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.ContentSecurityPolicyFilter.doFilter(ContentSecurityPolicyFilter.java:18)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.CSRFFilter.doFilter(CSRFFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:73)
+        at jetbrains.buildServer.web.DelegatingFilter.doFilter(DelegatingFilter.java:61)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:36)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 22:41:34,930]  ERROR -   jetbrains.buildServer.SERVER - Error java.io.IOException: Broken pipe; while processing request: GET '/profile.html', from client 192.168.99.1:51228, authenticated as 'rajendra' {id=1}
+java.io.IOException: Broken pipe
+        at sun.nio.ch.FileDispatcherImpl.write0(Native Method)
+        at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47)
+        at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+        at sun.nio.ch.IOUtil.write(IOUtil.java:65)
+        at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:471)
+        at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:134)
+        at org.apache.tomcat.util.net.NioBlockingSelector.write(NioBlockingSelector.java:101)
+        at org.apache.tomcat.util.net.NioSelectorPool.write(NioSelectorPool.java:157)
+        at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1306)
+        at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:726)
+        at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:496)
+        at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:434)
+        at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:623)
+        at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:123)
+        at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:225)
+        at org.apache.coyote.Response.doWrite(Response.java:541)
+        at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351)
+        at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:825)
+        at org.apache.catalina.connector.OutputBuffer.realWriteChars(OutputBuffer.java:456)
+        at org.apache.catalina.connector.OutputBuffer.flushCharBuffer(OutputBuffer.java:830)
+        at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:763)
+        at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:508)
+        at org.apache.catalina.connector.CoyoteWriter.write(CoyoteWriter.java:148)
+        at org.apache.jasper.runtime.JspWriterImpl.flushBuffer(JspWriterImpl.java:112)
+        at org.apache.jasper.runtime.JspWriterImpl.flush(JspWriterImpl.java:170)
+        at java.io.PrintWriter.flush(PrintWriter.java:320)
+        at org.apache.jasper.runtime.JspWriterImpl.flush(JspWriterImpl.java:172)
+        at org.apache.jsp.profile.userGeneralSettings_jsp._jspService(userGeneralSettings_jsp.java:300)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:476)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.access$001(TeamCityJSPServletImpl.java:2)
+        at jetbrains.spring.web.TeamCityJSPServletImpl$2.apply(TeamCityJSPServletImpl.java:2)
+        at jetbrains.buildServer.util.Util.doUnderContextClassLoader(Util.java:78)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.lambda$service$0(TeamCityJSPServletImpl.java:27)
+        at jetbrains.buildServer.util.NamedThreadFactory.executeWithNewThreadNameFuncThrow(NamedThreadFactory.java:107)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.service(TeamCityJSPServletImpl.java:31)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.spring.web.JspController.doHandle(JspController.java:1)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+        at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:591)
+        at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:527)
+        at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:892)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag._jspx_meth_c_005fif_005f3(includeExtension_tag.java:584)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag._jspx_meth_c_005fif_005f0(includeExtension_tag.java:206)
+        at org.apache.jsp.tag.web.ext.includeExtension_tag.doTag(includeExtension_tag.java:169)
+        at org.apache.jsp.profile.profile_jsp._jspx_meth_ext_005fincludeExtension_005f0(profile_jsp.java:525)
+        at org.apache.jsp.profile.profile_jsp.access$5(profile_jsp.java:513)
+        at org.apache.jsp.profile.profile_jsp$Helper.invoke3(profile_jsp.java:688)
+        at org.apache.jsp.profile.profile_jsp$Helper.invoke(profile_jsp.java:722)
+        at org.apache.jsp.tag.web.page_tag.doTag(page_tag.java:876)
+        at org.apache.jsp.profile.profile_jsp._jspService(profile_jsp.java:248)
+        at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:476)
+        at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+        at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.access$001(TeamCityJSPServletImpl.java:2)
+        at jetbrains.spring.web.TeamCityJSPServletImpl$2.apply(TeamCityJSPServletImpl.java:2)
+        at jetbrains.buildServer.util.Util.doUnderContextClassLoader(Util.java:78)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.lambda$service$0(TeamCityJSPServletImpl.java:27)
+        at jetbrains.buildServer.util.NamedThreadFactory.executeWithNewThreadNameFuncThrow(NamedThreadFactory.java:107)
+        at jetbrains.spring.web.TeamCityJSPServletImpl.service(TeamCityJSPServletImpl.java:31)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.spring.web.JspController.doHandle(JspController.java:1)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+        at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:470)
+        at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:395)
+        at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:316)
+        at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:168)
+        at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+        at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.jsp.JspPrecompilerFilter.doFilter(JspPrecompilerFilter.java:169)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.DisableSessionIdFromUrlFilter.doFilter(DisableSessionIdFromUrlFilter.java:1)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.UserIdProviderFilter.doFilter(UserIdProviderFilter.java:12)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.NodeInfoHeaderFilter.doFilter(NodeInfoHeaderFilter.java:6)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:107)
+        at jetbrains.buildServer.diagnostic.web.DiagnosticFilter.doFilter(DiagnosticFilter.java:88)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.DependencyParametersCalculationContextFilter.doFilter(DependencyParametersCalculationContextFilter.java:1)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.ContentSecurityPolicyFilter.doFilter(ContentSecurityPolicyFilter.java:18)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.CSRFFilter.doFilter(CSRFFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:73)
+        at jetbrains.buildServer.web.DelegatingFilter.doFilter(DelegatingFilter.java:61)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:36)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 22:46:55,611]  ERROR - r.configs.dsl.DslPluginManager - DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin7963402446352624251dir
+[2019-03-27 22:46:55,892]  ERROR - r.configs.dsl.DslPluginManager - Error while compiling generated Kotlin DSL
+java.lang.RuntimeException: DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin7963402446352624251dir
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.runCompiler(DslPluginManager.java:771)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileGeneratedKotlin(DslPluginManager.java:618)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileAndGenerateDocs(DslPluginManager.java:263)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initDslInternal(DslPluginManager.java:231)
+        at jetbrains.buildServer.serverSide.impl.BaseAccessChecker.runWithDisabledCheck(BaseAccessChecker.java:13)
+        at jetbrains.buildServer.serverSide.impl.SecondaryNodeSecurityManager.executeSafeCommandLine(SecondaryNodeSecurityManager.java:11)
+        at jetbrains.buildServer.serverSide.ReadOnlyRestrictor.doReadOnlyCommandLine(ReadOnlyRestrictor.java:1)
+        at jetbrains.buildServer.configs.dsl.RestrictorImpl.doReadOnlyCommandLine(RestrictorImpl.java:18)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initPlugins(DslPluginManager.java:203)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.lambda$initPluginsAsync$0(DslPluginManager.java:170)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 22:46:56,436]  ERROR - r.configs.dsl.DslPluginManager - Error while registering dsl plugin jars
+java.lang.RuntimeException: DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin7963402446352624251dir
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.runCompiler(DslPluginManager.java:771)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileGeneratedKotlin(DslPluginManager.java:618)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileAndGenerateDocs(DslPluginManager.java:263)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initDslInternal(DslPluginManager.java:231)
+        at jetbrains.buildServer.serverSide.impl.BaseAccessChecker.runWithDisabledCheck(BaseAccessChecker.java:13)
+        at jetbrains.buildServer.serverSide.impl.SecondaryNodeSecurityManager.executeSafeCommandLine(SecondaryNodeSecurityManager.java:11)
+        at jetbrains.buildServer.serverSide.ReadOnlyRestrictor.doReadOnlyCommandLine(ReadOnlyRestrictor.java:1)
+        at jetbrains.buildServer.configs.dsl.RestrictorImpl.doReadOnlyCommandLine(RestrictorImpl.java:18)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initPlugins(DslPluginManager.java:203)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.lambda$initPluginsAsync$0(DslPluginManager.java:170)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 22:52:30,841]   WARN -   jetbrains.buildServer.SERVER - GC usage exceeded 50% threshold and is now 99%. GC was fired 840 times since server start and consumed total 268968ms. Current memory usage: 222.65 MB.
+[2019-03-27 22:55:15,350]   WARN - .MavenRunnerDiscoveryExtension - Unrecognized Maven version: [3.0,)
+[2019-03-27 23:12:31,382]   WARN -   jetbrains.buildServer.SERVER - GC usage exceeded 50% threshold and is now 85%. GC was fired 860 times since server start and consumed total 335386ms. Current memory usage: 241.69 MB.
+^C
+Removing lock file so server won't automatically restart
+[2019-03-27 23:17:42,975]   WARN -   jetbrains.buildServer.SERVER - GC usage exceeded 50% threshold and is now 94%. GC was fired 861 times since server start and consumed total 425813ms. Current memory usage: 242.79 MB.
+Java executable is found: '/opt/java/openjdk/jre/bin/java'
+Using CATALINA_BASE:   /opt/teamcity
+Using CATALINA_HOME:   /opt/teamcity
+Using CATALINA_TMPDIR: /opt/teamcity/temp
+Using JRE_HOME:        /opt/java/openjdk/jre
+Using CLASSPATH:       /opt/teamcity/bin/bootstrap.jar:/opt/teamcity/bin/tomcat-juli.jar
+Using CATALINA_PID:    /opt/teamcity/bin/../logs/teamcity.pid
+Picked up JAVA_TOOL_OPTIONS: -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
+[2019-03-27 23:18:09,900]  ERROR - r.configs.dsl.DslPluginManager - DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin6138467396831363890dir
+[2019-03-27 23:18:10,408]  ERROR - r.configs.dsl.DslPluginManager - Error while compiling generated Kotlin DSL
+java.lang.RuntimeException: DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin6138467396831363890dir
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.runCompiler(DslPluginManager.java:771)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileGeneratedKotlin(DslPluginManager.java:618)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileAndGenerateDocs(DslPluginManager.java:263)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initDslInternal(DslPluginManager.java:231)
+        at jetbrains.buildServer.serverSide.impl.BaseAccessChecker.runWithDisabledCheck(BaseAccessChecker.java:13)
+        at jetbrains.buildServer.serverSide.impl.SecondaryNodeSecurityManager.executeSafeCommandLine(SecondaryNodeSecurityManager.java:11)
+        at jetbrains.buildServer.serverSide.ReadOnlyRestrictor.doReadOnlyCommandLine(ReadOnlyRestrictor.java:1)
+        at jetbrains.buildServer.configs.dsl.RestrictorImpl.doReadOnlyCommandLine(RestrictorImpl.java:18)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initPlugins(DslPluginManager.java:203)
+        at jetbrains.buildServer.configs.dsl.controllers.ReinitDslPluginsAction.process(ReinitDslPluginsAction.java:39)
+        at jetbrains.buildServer.controllers.BaseActionController.doAction(BaseActionController.java:59)
+        at jetbrains.buildServer.controllers.BaseAjaxActionController$1.handleRequest(BaseAjaxActionController.java:46)
+        at jetbrains.buildServer.controllers.AjaxRequestProcessor.processRequest(AjaxRequestProcessor.java:48)
+        at jetbrains.buildServer.controllers.BaseAjaxActionController.doHandle(BaseAjaxActionController.java:44)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.jsp.JspPrecompilerFilter.doFilter(JspPrecompilerFilter.java:169)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.DisableSessionIdFromUrlFilter.doFilter(DisableSessionIdFromUrlFilter.java:1)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.UserIdProviderFilter.doFilter(UserIdProviderFilter.java:12)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.NodeInfoHeaderFilter.doFilter(NodeInfoHeaderFilter.java:6)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:107)
+        at jetbrains.buildServer.diagnostic.web.DiagnosticFilter.doFilter(DiagnosticFilter.java:88)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.DependencyParametersCalculationContextFilter.doFilter(DependencyParametersCalculationContextFilter.java:1)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.ContentSecurityPolicyFilter.doFilter(ContentSecurityPolicyFilter.java:18)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.CSRFFilter.doFilter(CSRFFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:73)
+        at jetbrains.buildServer.web.DelegatingFilter.doFilter(DelegatingFilter.java:61)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:36)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 23:18:15,709]  ERROR - r.configs.dsl.DslPluginManager - Error while registering dsl plugin jars
+java.lang.RuntimeException: DSL plugin compilation failed
+exit code: -1
+exception: Timeout exception: the process did not produce output longer than 600 seconds; Process: /opt/java/openjdk/jre/bin/java -server -Xmx256m -cp /opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-common.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk7.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-stdlib-jdk8.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-reflect.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/lib/kotlin-script-runtime.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/kotlin_runtime/kotlin-compiler-embeddable.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-kotlin-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/runtime-util.jar:/opt/teamcity/webapps/ROOT/WEB-INF/plugins/.unpacked/configs-dsl/server/configs-dsl-server-2018.2.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/server.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/jdom.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/log4j-1.2.12.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/openapi.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/common-api.jar:/opt/teamcity/webapps/ROOT/WEB-INF/lib/xercesImpl.jar jetbrains.buildServer.configs.dsl.DslCompiler /opt/teamcity/temp/genKotlin6138467396831363890dir
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.runCompiler(DslPluginManager.java:771)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileGeneratedKotlin(DslPluginManager.java:618)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.compileAndGenerateDocs(DslPluginManager.java:263)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initDslInternal(DslPluginManager.java:231)
+        at jetbrains.buildServer.serverSide.impl.BaseAccessChecker.runWithDisabledCheck(BaseAccessChecker.java:13)
+        at jetbrains.buildServer.serverSide.impl.SecondaryNodeSecurityManager.executeSafeCommandLine(SecondaryNodeSecurityManager.java:11)
+        at jetbrains.buildServer.serverSide.ReadOnlyRestrictor.doReadOnlyCommandLine(ReadOnlyRestrictor.java:1)
+        at jetbrains.buildServer.configs.dsl.RestrictorImpl.doReadOnlyCommandLine(RestrictorImpl.java:18)
+        at jetbrains.buildServer.configs.dsl.DslPluginManager.initPlugins(DslPluginManager.java:203)
+        at jetbrains.buildServer.configs.dsl.controllers.ReinitDslPluginsAction.process(ReinitDslPluginsAction.java:39)
+        at jetbrains.buildServer.controllers.BaseActionController.doAction(BaseActionController.java:59)
+        at jetbrains.buildServer.controllers.BaseAjaxActionController$1.handleRequest(BaseAjaxActionController.java:46)
+        at jetbrains.buildServer.controllers.AjaxRequestProcessor.processRequest(AjaxRequestProcessor.java:48)
+        at jetbrains.buildServer.controllers.BaseAjaxActionController.doHandle(BaseAjaxActionController.java:44)
+        at jetbrains.buildServer.controllers.BaseController.handleRequestInternal(BaseController.java:114)
+        at org.springframework.web.servlet.mvc.AbstractController.handleRequest(AbstractController.java:174)
+        at jetbrains.buildServer.controllers.BaseController.handleRequest(BaseController.java:93)
+        at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+        at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+        at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.processedByMainServlet(TeamCityDispatcherServlet.java:48)
+        at jetbrains.buildServer.maintenance.TeamCityDispatcherServlet.service(TeamCityDispatcherServlet.java:53)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.jsp.JspPrecompilerFilter.doFilter(JspPrecompilerFilter.java:169)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.DisableSessionIdFromUrlFilter.doFilter(DisableSessionIdFromUrlFilter.java:1)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.UserIdProviderFilter.doFilter(UserIdProviderFilter.java:12)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.NodeInfoHeaderFilter.doFilter(NodeInfoHeaderFilter.java:6)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:107)
+        at jetbrains.buildServer.diagnostic.web.DiagnosticFilter.doFilter(DiagnosticFilter.java:88)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.DependencyParametersCalculationContextFilter.doFilter(DependencyParametersCalculationContextFilter.java:1)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.ContentSecurityPolicyFilter.doFilter(ContentSecurityPolicyFilter.java:18)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at jetbrains.buildServer.web.CSRFFilter.doFilter(CSRFFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:112)
+        at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:73)
+        at jetbrains.buildServer.web.DelegatingFilter.doFilter(DelegatingFilter.java:61)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at jetbrains.buildServer.web.ResponseFragmentFilter.doFilter(ResponseFragmentFilter.java:36)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+        at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800)
+        at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+        at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:806)
+        at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1498)
+        at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+        at java.lang.Thread.run(Thread.java:748)
+[2019-03-27 23:18:17,429]   WARN -   jetbrains.buildServer.SERVER - Error while processing Ajax request POST '/admin/action.html?initDslPlugins=true', from client 192.168.99.1:51519, authenticated as special user '' (Super user) {id=-42}: org.apache.catalina.connector.ClientAbortException: java.io.IOException: Broken pipe (enable debug to see stacktrace)
+27-Mar-2019 23:18:21.035 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+27-Mar-2019 23:18:27.867 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8111"]
+27-Mar-2019 23:18:28.502 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+Tomcat did not stop in time.
+To aid diagnostics a thread dump has been written to standard out.
+Killing Tomcat with the PID: 108
+The Tomcat process has been killed.
+root@default:~#
